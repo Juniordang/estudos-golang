@@ -24,18 +24,18 @@ func printer(ch chan int) {
 	wg.Done()
 }
 
-func main() {
-	ch := make(chan int)
-	go printer(ch)
-	wg.Add(1)
+// func main() {
+// 	ch := make(chan int)
+// 	go printer(ch)
+// 	wg.Add(1)
 
-	for i := 1; i <= 5; i++ {
-		fmt.Printf("Tentando enviar o valor %d\n", i)
-		ch <- i
-	}
-	fmt.Println("Saí do loop")
+// 	for i := 1; i <= 5; i++ {
+// 		fmt.Printf("Tentando enviar o valor %d\n", i)
+// 		ch <- i
+// 	}
+// 	fmt.Println("Saí do loop")
 
-	close(ch)
-	wg.Wait()
-	fmt.Println("Depois do wait") // só pode ser executudo quando a gorountine terminar.
-}
+// 	close(ch)
+// 	wg.Wait()
+// 	fmt.Println("Depois do wait") // só pode ser executudo quando a gorountine terminar.
+// }
